@@ -1,15 +1,121 @@
 {
-  "store.home": { 
+  "store.home": {
     "blocks": [
-      "rich-text"
+      "tab-layout#home",
+      "flex-layout.row",
+      "list-context.image-list#home"
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+  "tab-layout#home": {
+    "children": [
+      "tab-list#home"
+    ]
+  },
+  "tab-list#home": {
+    "children": [
+      "tab-list.item#home1",
+      "tab-list.item#home2",
+      "tab-list.item#home3",
+      "tab-list.item#home4",
+      "tab-list.item#home5",
+      "tab-list.item#home6",
+      "tab-list.item#home7",
+      "tab-list.item#home8",
+      "tab-list.item#home9",
+      "tab-list.item#home10"
+    ]
+  },
+  "tab-list.item#home1": {
+    "props": {
+      "tabId": "promocao",
+      "label": "Promoção"
+    }
+  },
+  "tab-list.item#home2": {
+    "props": {
+      "label": "Corinthians",
+      "tabId": "corinthians"
+    }
+  },
+  "tab-list.item#home3": {
+    "props": {
+      "tabId": "palmeiras",
+      "label": "Palmeiras"
+    }
+  },
+  "tab-list.item#home4": {
+    "props": {
+      "label": "Signos",
+      "tabId": "signos"
+    }
+  },
+  "tab-list.item#home5": {
+    "props": {
+      "tabId": "divertidos",
+      "label": "Divertidos"
+    }
+  },
+  "tab-list.item#home6": {
+    "props": {
+      "label": "7 Maravilhas",
+      "tabId": "maravilhas"
+    }
+  },
+  "tab-list.item#home7": {
+    "props": {
+      "tabId": "guerreiros",
+      "label": "Guerreiros"
+    }
+  },
+  "tab-list.item#home8": {
+    "props": {
+      "label": "Álbum 1",
+      "tabId": "album1"
+    }
+  },
+  "tab-list.item#home9": {
+    "props": {
+      "label": "Álbum 2",
+      "tabId": "album2"
+    }
+  },
+  "tab-list.item#home10": {
+    "props": {
+      "label": "Álbum 3",
+      "tabId": "album3"
+    }
+  },
+  "flex-layout.row": {
+    "children": [
+      "info-card#rethink",
+      "flex-layout.col"
+    ]
+  },
+  "flex-layout.col": {
+    "children": [
+      "image#electronics",
+      "image#major-appliance"
+    ]
+  },
+  "image#electronics": {
+    "props": {
+      "src": "https://appliancetheme.vteximg.com.br/assets/vtex.file-manager-graphql/images/electronics_banner___25d69b49f8224b369375e68513b4d593.png",
+      "maxWidth": "100%"
+    }
+  },
+  "image#major-appliance": {
+    "props": {
+      "src": "https://appliancetheme.vteximg.com.br/assets/vtex.file-manager-graphql/images/major_appliance_banner___bb10093866a127345ddfbcca3efa5022.png",
+      "maxWidth": "100%"
+    }
+  },
+  "info-card#rethink": {
+    "props": {
+      "imageUrl": "https://appliancetheme.vteximg.com.br/arquivos/utensilios-cozinha-min.png",
+      "isFullModeStyle": true,
+      "headline": "Time to rethink your kitchen",
+      "callToActionText": "Discover",
+      "textPosition": "center"
     }
   }
 }
