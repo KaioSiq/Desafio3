@@ -2,8 +2,8 @@
   "store.home": {
     "blocks": [
       "tab-layout#home",
-      "flex-layout.row",
-      "list-context.image-list#home"
+      "list-context.image-list#home",
+      "search-result-layout.customQuery#home"
     ]
   },
   "tab-layout#home": {
@@ -85,37 +85,65 @@
       "tabId": "album3"
     }
   },
-  "flex-layout.row": {
-    "children": [
-      "info-card#rethink",
-      "flex-layout.col"
+  "search-result-layout.customQuery#home": {
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop#lp",
+      "search-result-layout.mobile"
     ]
   },
-  "flex-layout.col": {
+  "search-result-layout.desktop#lp": {
     "children": [
-      "image#electronics",
-      "image#major-appliance"
+      "search-content#lp"
+    ],
+    "props": {
+      "preventRouteChange": true
+    }
+  },
+  "search-content#lp": {
+    "blocks": [
+      "gallery#lp",
+      "not-found"
     ]
   },
-  "image#electronics": {
+  "gallery#lp": {
     "props": {
-      "src": "https://appliancetheme.vteximg.com.br/assets/vtex.file-manager-graphql/images/electronics_banner___25d69b49f8224b369375e68513b4d593.png",
-      "maxWidth": "100%"
+      "layouts": [
+        {
+          "name": "grid",
+          "component": "GridSummary",
+          "itemsPerRow": {
+            "(min-width:1300px)": 4,
+            "desktop": 3,
+            "tablet": 3,
+            "mobile": 2
+          }
+        },
+        {
+          "name": "list",
+          "component": "ListSummary",
+          "itemsPerRow": 1
+        }
+      ],
+      "ListSummary": "product-summary.shelf#lp",
+      "GridSummary": "product-summary.shelf#lp"
     }
   },
-  "image#major-appliance": {
-    "props": {
-      "src": "https://appliancetheme.vteximg.com.br/assets/vtex.file-manager-graphql/images/major_appliance_banner___bb10093866a127345ddfbcca3efa5022.png",
-      "maxWidth": "100%"
-    }
+  "product-summary.shelf#lp": {
+    "children": [
+      "product-summary-name",
+      "product-images#lp"
+    ]
   },
-  "info-card#rethink": {
+  "product-images#lp": {
     "props": {
-      "imageUrl": "https://appliancetheme.vteximg.com.br/arquivos/utensilios-cozinha-min.png",
-      "isFullModeStyle": true,
-      "headline": "Time to rethink your kitchen",
-      "callToActionText": "Discover",
-      "textPosition": "center"
+      "showNavigationArrows": true,
+      "showPaginationDots": true
     }
   }
 }
