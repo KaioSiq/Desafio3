@@ -3,7 +3,8 @@
     "blocks": [
       "tab-layout#home",
       "list-context.image-list#home",
-      "search-result-layout.customQuery#home"
+      "search-result-layout.customQuery#home",
+      "vtex.product-highlights@2.x:product-highlights"
     ]
   },
   "tab-layout#home": {
@@ -89,7 +90,9 @@
     "props": {
       "querySchema": {
         "skusFilter": "FIRST_AVAILABLE",
-        "simulationBehavior": "skip"
+        "simulationBehavior": "skip",
+        "maxItemsPerPage": 12,
+        "blockClass": "sr"
       }
     },
     "blocks": [
@@ -119,8 +122,8 @@
           "component": "GridSummary",
           "itemsPerRow": {
             "(min-width:1300px)": 4,
-            "desktop": 3,
-            "tablet": 3,
+            "desktop": 2,
+            "tablet": 2,
             "mobile": 2
           }
         },
@@ -136,14 +139,67 @@
   },
   "product-summary.shelf#lp": {
     "children": [
+      "modal-trigger#lp",
       "product-summary-name",
-      "product-images#lp"
-    ]
+      "vtex.product-highlights@2.x:product-highlights",
+      "product-images#lp",
+      "product-summary-price",
+      "add-to-cart-button#lp"
+    ],
+    "props": {
+      "blockClass": [
+        "aoba",
+        "teste"
+      ]
+    }
   },
   "product-images#lp": {
     "props": {
       "showNavigationArrows": true,
       "showPaginationDots": true
+    }
+  },
+  "vtex.product-highlights@2.x:product-highlights": {
+    "children": [
+      "product-highlight-text"
+    ]
+  },
+  "product-highlight-text": {
+    "props": {
+      "message": "PROMOÇÃO"
+    }
+  },
+  "add-to-cart-button#lp": {
+    "props": {
+      "onClickBehavior": "go-to-product-page",
+      "text": "Ver detalhes"
+    }
+  },
+  "modal-trigger#lp": {
+    "children": [
+      "rich-text#lp",
+      "modal-layout#lp"
+    ]
+  },
+  "rich-text#lp": {
+    "props": {
+      "text": "Aoba"
+    }
+  },
+  "modal-layout#lp": {
+    "children": [
+      "video#lp"
+    ]
+  },
+  "video#lp": {
+    "props": {
+      "width": "100%",
+      "height": "600px",
+      "loop": false,
+      "autoPlay": true,
+      "muted": false,
+      "src": "https://https://youtu.be/8-KpLN57wOc",
+      "blockClass": "videoEl"
     }
   }
 }
